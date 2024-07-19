@@ -48,9 +48,9 @@ task cpc2 {
     command <<<
         set -euxo pipefail
         echo "check for cpc2 installation"
-        python CPC2_standalone-1.0.1/bin/CPC2.py -h
+        python /CPC2_standalone-1.0.1/bin/CPC2.py -h
 
-        python CPC2_standalone-1.0.1/bin/CPC2.py ~{cpc2Args} -i ~{ntfasta}  -o ~{outfname}
+        python /CPC2_standalone-1.0.1/bin/CPC2.py ~{cpc2Args} -i ~{ntfasta}  -o ~{outfname}
         echo "All done!"
         >>>
 
