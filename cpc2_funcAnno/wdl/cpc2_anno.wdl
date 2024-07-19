@@ -10,7 +10,7 @@ workflow call_cpc2_anno {
         String? cpc2Args
         String docker   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/cpc2_anno:latest"
         Int cpu         = 1
-        String memory   = 16
+        Int memory_gb   = 16
     }
 
     call cpc2 {
@@ -20,7 +20,7 @@ workflow call_cpc2_anno {
             cpc2Args            = cpc2Args,
             docker              = docker,
             cpu                 = cpu,
-            memory              = memory
+            memory_gb           = memory_gb
     }
     output {
         File cpc2Out = cpc2.cpc2AnnoTxt
@@ -42,7 +42,7 @@ task cpc2 {
         String docker
         Int cpu
         Int diskSizeGB = 16
-        String memory
+        String memory_gb
     }
 
     command <<<
@@ -65,7 +65,7 @@ task cpc2 {
     runtime {
         cpu         : cpu
         docker      : docker
-        memory      : memory
+        memory      : memory_gb + "GB"
         disks       : "local-disk ~{diskSizeGB} SSD"
 
     }
