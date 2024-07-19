@@ -59,7 +59,7 @@ task cpc2 {
     # ------------------------------------------------
     # Outputs:
     output {
-        File cpc2AnnoTxt = "./~{outfname}"
+        File cpc2AnnoTxt = "./~{outfname}.txt"
 
     }
     # ------------------------------------------------
