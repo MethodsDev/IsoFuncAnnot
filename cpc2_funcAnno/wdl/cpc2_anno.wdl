@@ -13,7 +13,7 @@ workflow call_cpc2_anno {
         String memory   = 16
     }
 
-    call pfam {
+    call cpc2 {
         input:
             ntfasta             = ntfasta,
             outfname            = outfname,
@@ -27,7 +27,7 @@ workflow call_cpc2_anno {
     }
 }
 
-task pfam {
+task cpc2 {
     meta {
         description: "Given a nucleotide FASTA file, generates cpc2 v1.0.1 annotations.txt"
     }
