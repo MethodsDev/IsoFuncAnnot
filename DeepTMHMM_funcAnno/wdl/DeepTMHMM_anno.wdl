@@ -47,7 +47,7 @@ task tmhmm {
     # ------------------------------------------------
     # Outputs:
     output {
-        File tmmhmmTMR = "./biolib_results/TMRs.gff3"
+        File tmhmmTMR = "./biolib_results/TMRs.gff3"
 
     }
     # ------------------------------------------------
