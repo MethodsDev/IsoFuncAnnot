@@ -40,9 +40,8 @@ task tmhmm {
 
     command <<<
         set -euxo pipefail
-	
-        biolib run DTU/DeepTMHMM --fasta ~{AAfasta}
 
+	biolib run DTU/DeepTMHMM --fasta ~{AAfasta}
 	echo "All done!"
         >>>
 
