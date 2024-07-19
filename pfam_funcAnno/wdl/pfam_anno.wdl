@@ -41,7 +41,7 @@ task pfam {
 
         String docker
         Int cpu
-        Int? diskSizeGB
+        Int diskSizeGB = "16"
         String memory
     }
 
