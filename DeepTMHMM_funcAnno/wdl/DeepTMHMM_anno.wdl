@@ -6,7 +6,7 @@ workflow call_tmhmm_anno {
         File AAfasta
 
         #Optional
-        String docker   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/cpc2_anno:latest"
+        String docker   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/deeptmhmm_anno:latest"
         Int cpu         = 1
         String memory   = 16
     }
