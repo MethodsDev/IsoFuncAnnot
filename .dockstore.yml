@@ -1,7 +1,7 @@
 version: 1.0
 workflows:
   - subclass: WDL
-    primaryDescriptorPath: /wdl/pfam_anno.wdl
+    primaryDescriptorPath: /pfam_funcAnno/wdl/pfam_anno.wdl
     testParameterFiles:
       - /optional.json
     name: pfam_anno
