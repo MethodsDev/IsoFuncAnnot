@@ -8,7 +8,7 @@ workflow call_tmhmm_anno {
         #Optional
         String docker   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/deeptmhmm_anno:latest"
         Int cpu         = 1
-        String memory   = 16
+        Int memory_gb   = 16
     }
 
     call tmhmm {
@@ -16,7 +16,7 @@ workflow call_tmhmm_anno {
             AAfasta             = AAfasta,
             docker              = docker,
             cpu                 = cpu,
-            memory              = memory
+            memory_gb           = memory_gb
     }
     output {
         File tmhmmOut = tmhmm.tmhmmTMR
@@ -35,7 +35,7 @@ task tmhmm {
         String docker
         Int cpu
         Int diskSizeGB = 16
-        String memory
+        String memory_gb
     }
     command <<<
 	set -euxo pipefail
@@ -55,7 +55,7 @@ task tmhmm {
     runtime {
         cpu         : cpu
         docker      : docker
-        memory      : memory
+        memory	    : memory_gb + "GB"
         disks       : "local-disk ~{diskSizeGB} SSD"
 
     }
