@@ -10,7 +10,7 @@ workflow call_pfam_anno {
         String? pfamArgs
         String docker   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/pfam_anno:latest"
         Int cpu         = 4
-        String memory   = "40G"
+        Int memory_gb   = 8
     }
 
     call pfam {
@@ -20,7 +20,7 @@ workflow call_pfam_anno {
             pfamArgs            = pfamArgs,
             docker              = docker,
             cpu                 = cpu,
-            memory              = memory
+            memory_gb           = memory_gb
     }
     output {
         File pfamOut = pfam.pfamAnnoTxt
@@ -42,7 +42,7 @@ task pfam {
         String docker
         Int cpu
         Int diskSizeGB = 16
-        String memory
+        String memory_gb
     }
 
     command <<<
@@ -68,7 +68,7 @@ task pfam {
     runtime {
         cpu         : cpu
         docker      : docker
-        memory      : memory
+        memory      : memory_gb + "GB"
         disks       : "local-disk ~{diskSizeGB} SSD"
 
     }
