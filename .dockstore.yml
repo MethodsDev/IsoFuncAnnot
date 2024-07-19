@@ -10,3 +10,12 @@ workflows:
     testParameterFiles:
       - /optional.json
     name: cpc2_anno
+  - subclass: WDL
+    primaryDescriptorPath: /DeepTMHMM_funcAnno/wdl/DeepTMHMM_anno.wdl
+    testParameterFiles:
+      - /optional.json
+    name: tmhmm_anno
+
+
+
+
