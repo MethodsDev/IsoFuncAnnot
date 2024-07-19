@@ -37,13 +37,12 @@ task tmhmm {
         Int diskSizeGB = 16
         String memory
     }
-
     command <<<
-        set -euxo pipefail
-
+	set -euxo pipefail
 	biolib run DTU/DeepTMHMM --fasta ~{AAfasta}
 	echo "All done!"
-        >>>
+
+	>>>
 
     # ------------------------------------------------
     # Outputs:
