@@ -44,16 +44,14 @@ task iupred2a {
     }
 
     command <<<
-        set -euxo pipefail
-
-        echo "checking tool path"
-        python /iupred2a/iupred2a.py -h
-
-        echo "checking path and dependecies for multi-fatsta util"
-        python /IsoFuncAnnot/iupred2_funcAnno/iupred_fasta_split.py -h
+	set -euxo pipefail
+	echo "checking tool path"
+	python /iupred2a/iupred2a.py -h
 	
-        python /IsoFuncAnnot/iupred2_funcAnno/iupred_fasta_split.py -i ~{AAfasta} -o ~{outfname} -m ~{mode}
-
+	echo "checking path and dependecies for multi-fatsta util.."
+	python /IsoFuncAnnot/iupred2_funcAnno/iupred_fasta_split.py -h
+	
+	python /IsoFuncAnnot/iupred2_funcAnno/iupred_fasta_split.py -i ~{AAfasta} -o ~{outfname} -m ~{mode}
         >>>
 
     # ------------------------------------------------
