@@ -9,17 +9,11 @@ workflow funcAnno_main {
   input {
     File? inputAAfasta
     File? inputNTfasta
-    Int? cpu
-    Int? memory_gb
-
   }
+if (defined(inputAAfasta)) {
   call pfam.pfam { 
     input: 
         AAfasta = inputAAfasta
-  }
-  call cpc2.cpc2 {
-   input:
-       ntfasta = inputNTfasta
   }
   call tmhmm.tmhmm { 
     input: 
@@ -29,4 +23,11 @@ workflow funcAnno_main {
     input: 
         AAfasta = inputAAfasta
   }
+}
+if (defined(inputNTfasta)) {
+  call cpc2.cpc2 {
+   input:
+       ntfasta = inputNTfasta
+  }
+}
 }
