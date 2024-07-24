@@ -53,7 +53,6 @@ task iupred2a {
         python /IsoFuncAnnot/iupred2_funcAnno/iupred_fasta_split.py -h
 	
         python /IsoFuncAnnot/iupred2_funcAnno/iupred_fasta_split.py -i ~{AAfasta} -o ~{outfname} -m ~{mode}
-
 	echo "All done!"
         >>>
 
