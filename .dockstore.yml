@@ -15,6 +15,11 @@ workflows:
     testParameterFiles:
       - /optional.json
     name: tmhmm_anno
+  - subclass: WDL
+    primaryDescriptorPath: /iupred2_funcAnno/wdl/iupred2_anno.wdl
+    testParameterFiles:
+      - /optional.json
+    name: iupred2a_anno
 
 
 
