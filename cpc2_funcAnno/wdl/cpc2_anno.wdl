@@ -37,7 +37,7 @@ task cpc2 {
         File ntfasta
 
         String outfname = "cpc2output.txt"
-        String? cpc2Args
+        String cpc2Args = "--ORF"
 
         String docker
         Int cpu
