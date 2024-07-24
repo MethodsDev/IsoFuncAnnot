@@ -22,7 +22,8 @@ workflow call_iupred2a_anno {
             memory_gb   = memory_gb
     }
     output {
-        File iupredOut = iupred2a.iupredOut
+	File iupredOut  = iupred2a.iupredOut
+	File errlogfile = iupred2a.errlogs
             }
 }
 
