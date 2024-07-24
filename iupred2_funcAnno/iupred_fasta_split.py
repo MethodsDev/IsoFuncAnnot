@@ -26,7 +26,7 @@ def iupred_for_multifasta(infile, outfile, mode):
                     out_tmp_file = tempfile.NamedTemporaryFile(mode = 'w')           
                     proc = subprocess.run(\
                         ['python',
-                         '/Users/akhorgad/functionalAnno/iupred2a/iupred2a.py',\
+                         '/iupred2a/iupred2a.py',\
                          '-a', in_tmp_file.name, mode] , stdout=out_tmp_file,stderr=subprocess.PIPE, shell=False)
                         
                 with open(out_tmp_file.name) as out_tmp_h:
