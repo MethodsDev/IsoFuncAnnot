@@ -11,14 +11,14 @@ workflow funcAnno_main {
     File? inputNTfasta
     Int cpu = 2
     Int memory_gb = 32
-  }
-
-  if (defined(inputAAfasta)) {
-    File inputAAfastaDefined = select_first([inputAAfasta])
     String dockerPfam   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/pfam_anno:latest"
     String dockerTmhmm  = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/deeptmhmm_anno:latest"
     String dockerCpc2   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/cpc2_anno:latest"
     String dockerIuPred = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/iupred2a_anno:latest"
+  }
+
+  if (defined(inputAAfasta)) {
+    File inputAAfastaDefined = select_first([inputAAfasta])  
     call pfam.pfam { 
       input:
         AAfasta     = inputAAfastaDefined,
