@@ -5,7 +5,7 @@ import "cpc2_funcAnno/wdl/cpc2_anno.wdl" as cpc2
 import "DeepTMHMM_funcAnno/wdl/DeepTMHMM_anno.wdl" as tmhmm
 import "iupred2_funcAnno/wdl/iupred2_anno.wdl" as iupred
 
-workflow funcAnno_main {
+workflow anno_main {
   input {
     File? inputAAfasta
     File? inputNTfasta
