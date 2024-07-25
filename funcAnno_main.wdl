@@ -4,27 +4,26 @@ workflow funcAnno_main {
     File? inputNTfasta
   }
 
-
-if (defined(inputAAfastaDefined)) {
-  File inputAAfastaDefined = select_first([inputAAfasta])
-  call pfam.pfam { 
-    input: 
+  if (defined(inputAAfasta)) {
+    File inputAAfastaDefined = select_first([inputAAfasta])
+    call pfam.pfam { 
+      input:
         AAfasta = inputAAfastaDefined
-  }
-  call tmhmm.tmhmm { 
-    input: 
+      }
+    call tmhmm.tmhmm {
+      input:
         AAfasta = inputAAfastaDefined
-  }
-  call iupred.iupred2a { 
-    input: 
+    }
+    call iupred.iupred2a {
+      input:
         AAfasta = inputAAfastaDefined
+    }
   }
-}
-if (defined(inputNTfastaDefined)) {
-  File inputNTfastaDefined = select_first([inputNTfasta])
-  call cpc2.cpc2 {
-   input:
-       ntfasta = inputNTfastaDefined
+  if (defined(inputNTfasta)) {
+    File inputNTfastaDefined = select_first([inputNTfasta])
+    call cpc2.cpc2 {
+      input:
+        ntfasta = inputNTfastaDefined
+    }
   }
-}
 }
