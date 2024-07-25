@@ -27,3 +27,4 @@ if (defined(inputNTfastaDefined)) {
        ntfasta = inputNTfastaDefined
   }
 }
+}
