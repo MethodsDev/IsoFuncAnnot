@@ -1,3 +1,5 @@
+version 1.0
+
 workflow funcAnno_main {
   input {
     File? inputAAfasta
