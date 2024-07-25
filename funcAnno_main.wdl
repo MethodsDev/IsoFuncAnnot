@@ -14,7 +14,7 @@ workflow funcAnno_main {
   }
 
   if (defined(inputAAfasta)) {
-    File inputAAfastaDefined = select_first([inputAAfasta]),
+    File inputAAfastaDefined = select_first([inputAAfasta])
     String dockerPfam   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/pfam_anno:latest"
     String dockerTmhmm  = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/deeptmhmm_anno:latest"
     String dockerCpc2   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/cpc2_anno:latest"
