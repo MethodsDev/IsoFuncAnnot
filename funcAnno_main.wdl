@@ -1,4 +1,5 @@
 version 1.0
+
 import "pfam_funcAnno/wdl/pfam_anno.wdl" as pfam
 import "cpc2_funcAnno/wdl/cpc2_anno.wdl" as cpc2
 import "DeepTMHMM_funcAnno/wdl/DeepTMHMM_anno.wdl" as tmhmm
@@ -14,24 +15,28 @@ workflow funcAnno_main {
 
   if (defined(inputAAfasta)) {
     File inputAAfastaDefined = select_first([inputAAfasta])
+    String dockerPfam   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/pfam_anno:latest"
+    String dockerTmhmm  = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/deeptmhmm_anno:latest"
+    String dockerCpc2   = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/cpc2_anno:latest"
+    String dockerIuPred = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/iupred2a_anno:latest"
     call pfam.pfam { 
       input:
         AAfasta     = inputAAfastaDefined
-        docker      = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/pfam_anno:latest"
+        docker      = dockerPfam 
         cpu         = cpu
         memory_gb   = memory_gb
       }
     call tmhmm.tmhmm {
       input:
         AAfasta     = inputAAfastaDefined
-        docker      = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/deeptmhmm_anno:latest"
+        docker      = dockerTmhmm 
         cpu         = cpu
         memory_gb   = memory_gb
     }
     call iupred.iupred2a {
       input:
         AAfasta     = inputAAfastaDefined
-        docker      = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/iupred2a_anno:latest"
+        docker      = dockerIuPred 
         cpu         = cpu
         memory_gb   = memory_gb
     }
@@ -41,7 +46,7 @@ workflow funcAnno_main {
     call cpc2.cpc2 {
       input:
         ntfasta     = inputNTfastaDefined
-        docker      = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/cpc2_anno:latest"
+        docker      = dockerCpc2 
         cpu         = cpu
         memory_gb   = memory_gb
     }
