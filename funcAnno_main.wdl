@@ -7,7 +7,7 @@ workflow funcAnno_main {
   }
 
   if (defined(inputAAfasta)) {
-    inputAAfastaDefined = select_first([inputAAfasta])
+    File inputAAfastaDefined = select_first([inputAAfasta])
     call pfam.pfam { 
       input:
         AAfasta = inputAAfastaDefined
@@ -22,7 +22,7 @@ workflow funcAnno_main {
     }
   }
   if (defined(inputNTfasta)) {
-    inputNTfastaDefined = select_first([inputNTfasta])
+    File inputNTfastaDefined = select_first([inputNTfasta])
     call cpc2.cpc2 {
       input:
         ntfasta = inputNTfastaDefined
