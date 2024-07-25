@@ -8,28 +8,42 @@ workflow funcAnno_main {
   input {
     File? inputAAfasta
     File? inputNTfasta
+    Int cpu = 2
+    Int memory_gb = 32
   }
 
   if (defined(inputAAfasta)) {
     File inputAAfastaDefined = select_first([inputAAfasta])
     call pfam.pfam { 
       input:
-        AAfasta = inputAAfastaDefined
+        AAfasta     = inputAAfastaDefined
+        docker      = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/pfam_anno:latest"
+        cpu         = cpu
+        memory_gb   = memory_gb
       }
     call tmhmm.tmhmm {
       input:
-        AAfasta = inputAAfastaDefined
+        AAfasta     = inputAAfastaDefined
+        docker      = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/deeptmhmm_anno:latest"
+        cpu         = cpu
+        memory_gb   = memory_gb
     }
     call iupred.iupred2a {
       input:
-        AAfasta = inputAAfastaDefined
+        AAfasta     = inputAAfastaDefined
+        docker      = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/iupred2a_anno:latest"
+        cpu         = cpu
+        memory_gb   = memory_gb
     }
   }
   if (defined(inputNTfasta)) {
     File inputNTfastaDefined = select_first([inputNTfasta])
     call cpc2.cpc2 {
       input:
-        ntfasta = inputNTfastaDefined
+        ntfasta     = inputNTfastaDefined
+        docker      = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/cpc2_anno:latest"
+        cpu         = cpu
+        memory_gb   = memory_gb
     }
   }
 }
