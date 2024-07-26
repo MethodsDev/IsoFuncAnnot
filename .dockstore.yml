@@ -21,6 +21,11 @@ workflows:
       - /optional.json
     name: iupred2a_anno
   - subclass: WDL
+    primaryDescriptorPath: /SignalP6_funcAnno/wdl/signalp_anno.wdl
+    testParameterFiles:
+      - /optional.json
+    name: signalp6_anno
+  - subclass: WDL
     primaryDescriptorPath: /anno_main.wdl
     testParameterFiles:
       - /optional.json
