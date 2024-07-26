@@ -18,37 +18,34 @@ workflow anno_main {
     String dockerIuPred     = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/iupred2a_anno:latest"
     String dockerSignalP    = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/signalp6_anno:latest"
   }
-
-  if (inputAAfasta) {
-    call pfam.pfam { 
-      input:
+  call pfam.pfam { 
+    input:
         AAfasta     = inputAAfasta,
         docker      = dockerPfam, 
         cpu         = cpu,
         memory_gb   = memory_gb
-      }
-    call tmhmm.tmhmm {
-      input:
+    }
+  call tmhmm.tmhmm {
+    input:
         AAfasta     = inputAAfasta,
         docker      = dockerTmhmm, 
         cpu         = cpu,
         memory_gb   = memory_gb
     }
-    call iupred.iupred2a {
-      input:
+  call iupred.iupred2a {
+    input:
         AAfasta     = inputAAfasta,
         docker      = dockerIuPred, 
         cpu         = cpu,
         memory_gb   = memory_gb
     }
-    call signalp.signalp6 {
-      input:
+  call signalp.signalp6 {
+    input:
         AAfasta     = inputAAfasta,
         docker      = dockerSignalP,
         cpu         = cpu,
         memory_gb   = memory_gb
     }
-  }
   if (defined(inputNTfasta)) {
     File inputNTfastaDefined = select_first([inputNTfasta])
     call cpc2.cpc2 {
