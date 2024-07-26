@@ -10,7 +10,7 @@ workflow call_signalp_anno {
         Int memory_gb   = 16
     }
 
-    call iupred2a {
+    call signalp6 {
         input:
             AAfasta     = AAfasta,
             docker      = docker,
