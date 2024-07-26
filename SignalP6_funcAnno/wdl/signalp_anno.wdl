@@ -18,7 +18,7 @@ workflow call_signalp_anno {
             memory_gb   = memory_gb
     }
     output {
-        File signalPOut = signalp6.signalp_out
+        File signalPOut = signalp6.signalpOut
             }
 }
 
