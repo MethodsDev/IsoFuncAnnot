@@ -19,7 +19,7 @@ workflow anno_main {
     String dockerSignalP    = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/signalp6_anno:latest"
   }
 
-  if (defined(inputAAfasta)) {
+  if (inputAAfasta) {
     call pfam.pfam { 
       input:
         AAfasta     = inputAAfasta,
