@@ -20,21 +20,21 @@ workflow anno_main {
   if (defined(inputAAfasta)) {
     call pfam.pfam { 
       input:
-        AAfasta     = inputAAfastaDefined,
+        AAfasta     = inputAAfasta,
         docker      = dockerPfam, 
         cpu         = cpu,
         memory_gb   = memory_gb
       }
     call tmhmm.tmhmm {
       input:
-        AAfasta     = inputAAfastaDefined,
+        AAfasta     = inputAAfasta,
         docker      = dockerTmhmm, 
         cpu         = cpu,
         memory_gb   = memory_gb
     }
     call iupred.iupred2a {
       input:
-        AAfasta     = inputAAfastaDefined,
+        AAfasta     = inputAAfasta,
         docker      = dockerIuPred, 
         cpu         = cpu,
         memory_gb   = memory_gb
