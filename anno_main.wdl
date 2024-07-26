@@ -7,7 +7,7 @@ import "iupred2_funcAnno/wdl/iupred2_anno.wdl" as iupred
 
 workflow anno_main {
   input {
-    File? inputAAfasta
+    File inputAAfasta
     File? inputNTfasta
     Int cpu = 2
     Int memory_gb = 32
@@ -18,7 +18,6 @@ workflow anno_main {
   }
 
   if (defined(inputAAfasta)) {
-    File inputAAfastaDefined = select_first([inputAAfasta])  
     call pfam.pfam { 
       input:
         AAfasta     = inputAAfastaDefined,
