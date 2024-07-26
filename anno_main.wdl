@@ -60,11 +60,11 @@ workflow anno_main {
     }
   }
   output {
-        File pfamOut            =   pfam.pfam.pfamAnnoTxt
-        File tmhmmOut           =   tmhmm.tmhmm.tmhmmTMR
-        File iupredOut          =   iupred.iupred2a.iupredOut
+        File pfamOut            =   pfam.pfamAnnoTxt
+        File tmhmmOut           =   tmhmm.tmhmmTMR
+        File iupredOut          =   iupred2a.iupredOut
         File iupredErrlogfile   =   iupred2a.errlogs
-        File signalPOut         =   signalp.signalp6.signalpOut
-        File? cpc2Out           =   cpc2.cpc2.cpc2AnnoTxt
+        File signalPOut         =   signalp6.signalpOut
+        File? cpc2Out           =   cpc2.cpc2AnnoTxt
   }
 }
