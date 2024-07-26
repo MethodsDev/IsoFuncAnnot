@@ -65,6 +65,6 @@ workflow anno_main {
         File iupredOut          =   iupred.iupred2a.iupredOut
         File iupredErrlogfile   =   iupred2a.errlogs
         File signalPOut         =   signalp.signalp6.signalpOut
-        File cpc2Out            =   cpc2.cpc2.cpc2AnnoTxt
+        File? cpc2Out           =   cpc2.cpc2.cpc2AnnoTxt
   }
 }
