@@ -8,7 +8,7 @@ import "SignalP6_funcAnno/wdl/signalp_anno.wdl" as signalp
 
 workflow anno_main {
   input {
-    File? inputAAfasta
+    File inputAAfasta
     File? inputNTfasta
     Int cpu = 2
     Int memory_gb = 32
