@@ -59,4 +59,12 @@ workflow anno_main {
         memory_gb   = memory_gb
     }
   }
+  output {
+        File pfamOut            =   pfam.pfam.pfamAnnoTxt
+        File tmhmmOut           =   tmhmm.tmhmm.tmhmmTMR
+        File iupredOut          =   iupred.iupred2a.iupredOut
+        File iupredErrlogfile   =   iupred2a.errlogs
+        File signalPOut         =   signalp.signalp6.signalpOut
+        File cpc2Out            =   cpc2.cpc2.cpc2AnnoTxt
+  }
 }
