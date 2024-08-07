@@ -36,7 +36,7 @@ task cpc2 {
         #Required 
         File ntfasta
 
-        String outfname = "cpc2output.txt"
+        String outfname = "cpc2output"
         String cpc2Args = ""
 
         String docker
