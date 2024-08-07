@@ -46,7 +46,7 @@ task signalp6 {
         echo "display signalp6 options"
         signalp6 -h
 
-        signalp6 -ff ~{AAfasta} -od ./signalp_out
+        signalp6 -ff ~{AAfasta} -org 'eukarya' -od ./signalp_out
         echo "All done!"
         >>>
 
