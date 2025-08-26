@@ -5,8 +5,8 @@ workflow call_tmhmm_anno_chunked {
         # Required 
         File AAfasta
         
-        # Optional chunking parameters
-        Int sequences_per_chunk = 1000  # Adjust based on your needs
+        # Optional chunking parameter
+        Int sequences_per_chunk = 100
         
         # Optional runtime parameters
         String docker = "us-east4-docker.pkg.dev/methods-dev-lab/func-annotations/deeptmhmm_anno:latest"
