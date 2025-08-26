@@ -16,6 +16,11 @@ workflows:
       - /optional.json
     name: tmhmm_anno
   - subclass: WDL
+    primaryDescriptorPath: /DeepTMHMM_large_input/wdl/DeepTMHMM_anno_chunked.wdl
+    testParameterFiles:
+      - /optional.json
+    name: tmhmm_chunked
+  - subclass: WDL
     primaryDescriptorPath: /iupred2_funcAnno/wdl/iupred2_anno.wdl
     testParameterFiles:
       - /optional.json
