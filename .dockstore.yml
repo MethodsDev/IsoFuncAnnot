@@ -21,6 +21,11 @@ workflows:
       - /optional.json
     name: tmhmm_chunked
   - subclass: WDL
+    primaryDescriptorPath: /tmhmm2_funcAnno/wdl/tmhmm_v2.wdl
+    testParameterFiles:
+      - /optional.json
+    name: tmhmmv2_anno    
+  - subclass: WDL
     primaryDescriptorPath: /iupred2_funcAnno/wdl/iupred2_anno.wdl
     testParameterFiles:
       - /optional.json
