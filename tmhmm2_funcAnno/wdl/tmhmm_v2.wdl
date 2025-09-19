@@ -25,7 +25,7 @@ task run_tmhmm {
   >>>
   
   runtime {
-    docker: "us-central1-docker.pkg.dev/my-project/my-repo/tmhmm:2.0"
+    docker: "us-east4-docker.pkg.dev/methods-dev-lab/mdl-private/tmhmm:2.0"
     memory: "4G"
     cpu: 1
   }
